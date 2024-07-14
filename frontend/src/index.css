@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.card {
+  flex: 1 1 300px;
+  height: 300px;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: cardFadeIn 0.5s forwards;
+}
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-header {
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+  position: relative;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+  padding: 10px 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.premium-label {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px 8px;
+  background-color: #d63384; /* Darker pink */
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.75em; /* Smaller font size */
+  font-family: 'Arial', sans-serif; /* Modern font */
+  vertical-align: middle;
+}
+
+.card-content {
+  padding: 30px;
+  text-align: center;
+}
+
+.card-content p {
+  color: #777;
+  margin: 0px 0;
+  font-size: 0.9em;
+}
+
+.card-content .dates {
+  margin: 10px 0;
+  color: #555;
+  font-size: 0.8em;
+}
+
+.card-content a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: 'Roboto', sans-serif; /* Stylish, modern font */
+}
+
+.card-content a:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+  .card-header h3 {
+    padding: 10px 20px;
+  }
+}
