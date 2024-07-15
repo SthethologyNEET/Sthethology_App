@@ -53,14 +53,13 @@
 }
 
 .form .loginBtn {
-    height: 36px;
-    width: 260px;
     border-radius: 8px;
-    margin-top: 25px;
+    margin-top: 20px;
     font-weight: 700;
     font-size: 1.3em;
     margin-bottom: 10px;
-    margin-left: 10px;
+    padding: 4px 0;
+    width: 100%;
 }
 
 .form .link {

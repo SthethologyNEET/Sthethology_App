@@ -6,15 +6,15 @@ import { useAuthContext } from "./context/AuthContext";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const {authUser} = useAuthContext();
+  const { authUser } = useAuthContext();
 
   return (
     <>
       <div className="container">
         <Routes>
           <Route path="/" element={authUser ? <Courses /> : <Navigate to={"/signup"} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={authUser ?  <Navigate to="/" /> : <Signup />} />
+          <Route path="/login" element={authUser ? <Navigate to="/" /> : <Login />} />
+          <Route path="/signup" element={authUser ? <Navigate to="/" /> : <Signup />} />
         </Routes>
         <Toaster />
       </div>
