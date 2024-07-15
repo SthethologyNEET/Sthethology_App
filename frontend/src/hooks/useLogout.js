@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import scrollToTop from "../utils/scrollToTop";
 
 const useLogout = () => {
     const [loading, setIsLoading] = useState(false);
@@ -23,6 +24,7 @@ const useLogout = () => {
             toast.success("Logged out Successfully");
         } catch (error) {
             toast.error(error.message);
+            scrollToTop();
         } finally {
             setIsLoading(false);
         }

@@ -34,8 +34,8 @@ const Login = () => {
           <input type="password" placeholder="Enter Password"
             value={inputs.password}
             onChange={(e) => setInputs({ ...inputs, password: e.target.value })} />
-          <button className="btn loginBtn signupBtn" disabled={loading}>Login</button>
-          <Link className="link signupLink" to="/login">Already have an account? Login</Link>
+          <button className="btn loginBtn" disabled={loading}>Login</button>
+          <Link className="link signupLink" to="/signup">Do not have an account? Signup</Link>
         </div>
       </form>
     </div>

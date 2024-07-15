@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import scrollToTop from "../utils/scrollToTop";
 
 const useLogin = () => {
     const [loading, setIsLoading] = useState(false);
@@ -28,6 +29,7 @@ const useLogin = () => {
             toast.success("Logged in Successfully");
         } catch (error) {
             toast.error(error.message);
+            scrollToTop();
         } finally {
             setIsLoading(false);
         }
@@ -40,6 +42,7 @@ export default useLogin;
 function handleInputErrors({ email, password }) {
     if (!email || !password) {
         toast.error("Please fill all the fields");
+        scrollToTop();
         return false;
     }
     return true;

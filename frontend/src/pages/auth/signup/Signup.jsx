@@ -9,7 +9,6 @@ import { FaTransgender } from "react-icons/fa";
 import { PiBooksFill } from "react-icons/pi";
 import "./Signup.css";
 import GenderCheckbox from "../../../components/GenderCheckBox";
-import StudyCheckBox from "../../../components/StudyCheckBox";
 import useSignup from "../../../hooks/useSignup";
 
 const Signup = () => {
@@ -33,9 +32,9 @@ const Signup = () => {
         console.log(gender);
     }
 
-    const handleStudyCheckboxChange = (studyingFor) => {
-        setInputs({ ...inputs, studyingFor });
-        console.log(studyingFor);
+    const handleStudyingForChange = (e) => {
+        setInputs({ ...inputs, studyingFor: e.target.value });
+        console.log(e.target.value);
     }
 
     const handleSubmit = async (e) => {
@@ -46,7 +45,7 @@ const Signup = () => {
     return (
         <div className="container signup">
             <div className="container signupHeader">
-                <img src="logo.jpg" />
+                <img src="logo.jpg" alt="Logo" />
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="form">
@@ -86,8 +85,13 @@ const Signup = () => {
                     <label><FaTransgender /> Gender</label>
                     <GenderCheckbox onCheckboxChange={handleGenderCheckboxChange} selectedGender={inputs.gender} />
                     <label><PiBooksFill /> Enrolling For</label>
-                    <StudyCheckBox onCheckboxChange={handleStudyCheckboxChange} selectedGender={inputs.studyingFor} />
-                    <button className="btn loginBtn signupBtn" disabled={loading}>Signup</button>
+                    <select value={inputs.studyingFor} onChange={handleStudyingForChange}>
+                        <option value="">Select an option</option>
+                        <option value="XI">XI</option>
+                        <option value="XII">XII</option>
+                        <option value="Dropper">Dropper</option>
+                    </select>
+                    <button className="btn signupBtn" disabled={loading}>Signup</button>
                     <Link className="link signupLink" to="/login">Already have an account? Login</Link>
                 </div>
             </form>
