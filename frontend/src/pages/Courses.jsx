@@ -1,4 +1,5 @@
 import CourseCard from "../components/CourseCard";
+import useLogout from "../hooks/useLogout";
 
 const courses = [
   {
@@ -31,6 +32,12 @@ const courses = [
 
 const Courses = () => {
   const today = new Date();
+  const { loading, logout } = useLogout();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    await logout();
+  }
 
   return (
     <div className="container">
@@ -41,6 +48,15 @@ const Courses = () => {
         }
         return <CourseCard key={index} course={course} />;
       })}
+      <div className="container">
+        <button
+          className="btn"
+          disabled={loading}
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

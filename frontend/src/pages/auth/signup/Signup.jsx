@@ -40,8 +40,6 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted");
-        console.log(inputs);
         await signup(inputs);
     }
 
